@@ -12,3 +12,8 @@ install with Homebrew
 brew tap retro-NEHS/brew
 brew install howhow-cpp
 ```
+
+daily use
+```bash
+g++ main.cpp -lhowhow
+```
