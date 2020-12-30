@@ -1,5 +1,5 @@
 # howhow-cpp
-howhow classics in cpp
+Blast users with quotes from HowHow
 
 quotes ported from [howhow-cli](https://github.com/WeiChiaChang/howhow-cli)
 
