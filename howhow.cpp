@@ -88,7 +88,7 @@ constexpr std::array<const char*, 58> quotes = {
     "第一次求婚，好緊張"};
 }  // anonymous namespace
 
-std::string talk(const unsigned seed) {
+std::string talk(unsigned seed) {
     return quotes.at(std::default_random_engine(seed)() % quotes.size());
 }
 
