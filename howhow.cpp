@@ -23,7 +23,7 @@
 
 namespace howhow {
 namespace {
-const std::array<std::string, 58> quotes = {
+constexpr std::array<const char*, 58> quotes = {
     "J 格是 ... 大人的味道！！！",
     "你擔心你的髮線越來越高嘛？",
     "不會下雨啦～下雨我剃光頭",
