@@ -89,7 +89,7 @@ constexpr std::array<const char*, 58> quotes = {
 }  // anonymous namespace
 
 std::string talk(const unsigned seed) {
-    return quotes[std::default_random_engine(seed)() % quotes.size()];
+    return quotes.at(std::default_random_engine(seed)() % quotes.size());
 }
 
 std::string talk() {
