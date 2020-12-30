@@ -22,7 +22,7 @@
 
 namespace howhow {
 
-std::string talk(const unsigned seed);
+std::string talk(unsigned seed);
 std::string talk();
 
 }  // namespace howhow
