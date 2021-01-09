@@ -31,7 +31,8 @@ jobs:
               repo: context.repo.repo,
               tag: match[1],
             }).then(res => {
-              console.log(res);
+              core.warning("response");
+              console.log(res.json());
             });
             //console.log("ex rel:", existing_release);
             
