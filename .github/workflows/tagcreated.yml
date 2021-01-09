@@ -2,7 +2,8 @@ name: Tag Created
 
 on:
   create:
-    branches: [ master ]
+    tags:
+      - v2*
 
 jobs:
   abracadabra:
