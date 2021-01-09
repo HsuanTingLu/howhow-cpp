@@ -34,7 +34,7 @@ jobs:
               core.warning("response");
               console.log(res);
             }).catch(err => {
-              console.log(err);
+              console.log(err.status);
             });
             //console.log("ex rel:", existing_release);
             
