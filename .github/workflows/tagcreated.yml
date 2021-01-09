@@ -21,7 +21,7 @@ jobs:
             tag_ref = context.ref;
             const match = tag_ref.match(semver_tag_with_prefix_regex);
 
-            //if (match === null) { console.log(error); }
+            if (match === null) { core.setFailed(`not a SemVer tag`); }
             console.log(`${match[1]}`);
             const is_prerelease = match[6] === undefined ? false : true;
             console.log("prerelease:", is_prerelease);
