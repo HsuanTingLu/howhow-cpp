@@ -11,20 +11,22 @@ jobs:
       - uses: actions/github-script@v3
         with:
           script: |
-            //console.log("gh ref:", context.github.ref);
-            console.log("ref:", context.ref);
-            console.log("owner:", context.repo.owner);
-            console.log("repo:", context.repo.repo);
             
-            // Tags that ends with SemVer, e.g. aaa/v1.0.1-alpha+20201101.build3
-            const semver_tag_with_prefix_regex = /^refs\/tags\/(v?((0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?))$/;
+            // Matches tags that end with SemVer, e.g. v1.0.1-alpha+20201101.build3
+            const semver_tag_without_prefix_regex = /^refs\/tags\/(v?((0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?))$/;
             tag_ref = context.ref;
-            const match = tag_ref.match(semver_tag_with_prefix_regex);
+            const match = tag_ref.match(semver_tag_without_prefix_regex);
 
             if (match === null) { core.setFailed(`not a SemVer tag`); return; }
-            console.log(`${match[1]}`);
+
             const is_prerelease = match[6] === undefined ? false : true;
-            console.log("prerelease:", is_prerelease);
+            
+            const existing_release = github.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: match[1],
+            });
+            console.log("ex rel:", existing_release);
             
             /*github.repos.createRelease({
               owner: context.repo.owner,
