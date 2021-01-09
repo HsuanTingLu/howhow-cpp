@@ -21,7 +21,7 @@ jobs:
 
             const is_prerelease = match[6] === undefined ? false : true;
             
-            const existing_release = github.repos.getReleaseByTag({
+            const existing_release = await github.repos.getReleaseByTag({
               owner: context.repo.owner,
               repo: context.repo.repo,
               tag: match[1],
