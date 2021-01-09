@@ -2,6 +2,7 @@ name: Tag Created
 
 on:
   create:
+    branches: [ master ]
 
 jobs:
   abracadabra:
