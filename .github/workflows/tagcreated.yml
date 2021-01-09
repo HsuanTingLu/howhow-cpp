@@ -9,5 +9,7 @@ jobs:
   abracadabra:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo tag created
+      - uses: actions/github-script@v3
+        with:
+          script: |
+            console.log(context)
