@@ -15,5 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
-          echo tags pushed
+      - uses: actions/github-script@v3
+        with:
+          script: |
+            console.log(context)
