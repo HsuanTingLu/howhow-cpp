@@ -11,8 +11,8 @@ jobs:
       - uses: actions/github-script@v3
         with:
           script: |
-            console.log("gh ref:", context.github.ref);
-            //console.log("ref:", context.ref);
+            //console.log("gh ref:", context.github.ref);
+            console.log("ref:", context.ref);
             console.log("owner:", context.repo.owner);
             console.log("repo:", context.repo.repo);
             
