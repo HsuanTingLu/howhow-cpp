@@ -9,7 +9,7 @@ quotes originated from [HowFun](https://www.youtube.com/user/jasonjason1124)
 
 install with Homebrew
 ```bash
-brew tap hsuantinglu/utils
+brew tap hsuantinglu/public
 brew install howhow-cpp
 ```
 
