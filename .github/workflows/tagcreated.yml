@@ -18,7 +18,7 @@ jobs:
             
             // Tags that ends with SemVer, e.g. aaa/v1.0.1-alpha+20201101.build3
             const semver_tag_with_prefix_regex = /^refs\/tags\/((?:.+?\/)?v?((0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?))$/;
-            tag_ref = context.github.ref;
+            tag_ref = context.ref;
             const match = tag_ref.match(semver_tag_with_prefix_regex);
 
             //if (match === null) { console.log(error); }
