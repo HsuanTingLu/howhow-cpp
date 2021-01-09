@@ -31,13 +31,14 @@ jobs:
               repo: context.repo.repo,
               tag: match[1],
             }).then(res => {
-              core.warning("response");
-              console.log(res);
+              core.setFailed("Releases with this tag already exist.");
+              return;
             }).catch(err => {
               if (err.status == 404) {
                 core.debug("Did not find releases with this tag.");
               } else {
-                throw err; return;
+                core.setFailed(`weird response status code: ${err.status}`);
+                return;
               }
             });
             //console.log("ex rel:", existing_release);
