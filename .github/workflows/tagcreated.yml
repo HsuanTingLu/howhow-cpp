@@ -32,7 +32,9 @@ jobs:
               tag: match[1],
             }).then(res => {
               core.warning("response");
-              console.log(res.json());
+              console.log(res);
+            }).catch(err => {
+              console.log(err);
             });
             //console.log("ex rel:", existing_release);
             
