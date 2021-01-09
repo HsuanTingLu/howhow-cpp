@@ -34,7 +34,11 @@ jobs:
               core.warning("response");
               console.log(res);
             }).catch(err => {
-              console.log(err.status);
+              if (err.status == 404) {
+                core.debug("Did not find releases with this tag.");
+              } else {
+                throw err; return;
+              }
             });
             //console.log("ex rel:", existing_release);
             
